@@ -30,3 +30,6 @@ jobs:
           configurePreset: 'ninja-multi-vcpkg'
           buildPreset: 'ninja-multi-vcpkg-debug'
           testPreset: 'ninja-multi-vcpkg-debug'
+
+      - name: dir vcpkg_install
+        run: dir vcpkg_install
