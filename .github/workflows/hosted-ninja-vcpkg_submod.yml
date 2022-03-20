@@ -32,12 +32,10 @@ jobs:
           testPreset: 'ninja-multi-vcpkg-debug'
 
       - name: Tar files
-        run: tar -cvf ${{ github.workspace }}/"$RUNNER_OS".tar ${{ github.workspace }}/vcpkg_install
+        run: tar -cvf ${{ github.workspace }}/$RUNNER_OS.tar ${{ github.workspace }}/vcpkg_installed
 
-      - name: dir vcpkg_installed
-        run: |
-         if [ "$RUNNER_OS" == "Windows" ]; then
-              dir ${{ github.workspace }}
-         else
-              ls ${{ github.workspace }}
-         fi
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+            name: my-artifact ${{ matrix.node-version }}
+            path: ${{ github.workspace }}/$RUNNER_OS.tar
