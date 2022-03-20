@@ -31,10 +31,13 @@ jobs:
           buildPreset: 'ninja-multi-vcpkg-debug'
           testPreset: 'ninja-multi-vcpkg-debug'
 
+      - name: Tar files
+        run: tar -cvf ${{ github.workspace }}/"$RUNNER_OS".tar ${{ github.workspace }}/vcpkg_install
+
       - name: dir vcpkg_installed
         run: |
          if [ "$RUNNER_OS" == "Windows" ]; then
-              dir vcpkg_installed
+              dir ${{ github.workspace }}
          else
-              ls vcpkg_installed
+              ls ${{ github.workspace }}
          fi
