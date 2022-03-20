@@ -32,4 +32,9 @@ jobs:
           testPreset: 'ninja-multi-vcpkg-debug'
 
       - name: dir vcpkg_installed
-        run: dir vcpkg_installed
+        run: |
+         if [ "$RUNNER_OS" == "Windows" ]; then
+              dir vcpkg_installed
+         else
+              ls vcpkg_installed
+         fi
