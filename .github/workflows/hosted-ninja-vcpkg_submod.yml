@@ -32,4 +32,4 @@ jobs:
           testPreset: 'ninja-multi-vcpkg-debug'
 
       - name: dir vcpkg_install
-        run: dir vcpkg_install
+        run: dir 
