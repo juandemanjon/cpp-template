@@ -31,8 +31,9 @@ jobs:
           buildPreset: 'ninja-multi-vcpkg-debug'
           testPreset: 'ninja-multi-vcpkg-debug'
 
-      - name: Tar files
+      - name: Move to the project folder
       - run: cd ${{ github.workspace }}
+      - name: Tar files
       - run: tar -cvf ${{ github.workspace }}/$RUNNER_OS.tar vcpkg_installed
 
       - name: Upload
