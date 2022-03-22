@@ -34,7 +34,7 @@ jobs:
       - name: Move to the project folder
         run: cd ${{ github.workspace }}
       - name: Tar files
-        run: tar -cvf ${{ github.workspace }}/$RUNNER_OS.tar vcpkg_installed
+        run: tar -cvf ${{ runner.os }}.tar vcpkg_installed
 
       - name: Upload
         uses: jfrog/setup-jfrog-cli@v2
@@ -42,4 +42,4 @@ jobs:
           JF_ARTIFACTORY_1: ${{ secrets.JF_ARTIFACTORY_SECRET_1 }}
       - run: cd ${{ github.workspace }}
       - run: jfrog --version
-      - run: jfrog rt u ${{ matrix.RUNNER_OS }}.tar "/dependencies"
+      - run: jfrog rt u ${{ runner.os }}.tar "/dependencies"
