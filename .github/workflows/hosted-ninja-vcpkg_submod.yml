@@ -37,6 +37,6 @@ jobs:
       - name: Upload
         uses: jfrog/setup-jfrog-cli@v2
         env:
-          JF_ENV_1: ${{ secrets.JF_SECRET_ENV_1 }}
+          JF_ARTIFACTORY_1: ${{ secrets.JF_ARTIFACTORY_SECRET_1 }}
       - run: jfrog --version
       - run: jfrog rt u ${{ github.workspace }}/$RUNNER_OS.tar "/dependencies"
