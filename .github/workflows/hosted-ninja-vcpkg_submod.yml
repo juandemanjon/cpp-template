@@ -38,5 +38,5 @@ jobs:
         uses: jfrog/setup-jfrog-cli@v2
         env:
           JF_ENV_1: ${{ secrets.JF_SECRET_ENV_1 }}
-      - run: jf --version
+      - run: jfrog --version
       - run: jfrog rt u ${{ github.workspace }}/$RUNNER_OS.tar "/dependencies"
