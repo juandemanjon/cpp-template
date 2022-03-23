@@ -3,6 +3,14 @@
     "version": "0.0.0",
     "dependencies": [
         "catch2",
-        "fmt"
+        "fmt",
+        {
+            "name": "opentelemetry-cpp",
+            "features": [
+                "jaeger",
+                "zipkin",
+                "otlp"
+            ]
+        }
     ]
 }
